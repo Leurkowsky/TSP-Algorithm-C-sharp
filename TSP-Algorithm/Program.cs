@@ -15,7 +15,7 @@ namespace TSP_Algorithm
         private static int bestResult = int.MaxValue;
         private static int[] bestRoute;
 
-        //tournament selection
+        //tournament selection https://en.wikipedia.org/wiki/Tournament_selection
         private static int[,] tournamentSelection(int[] sumRoadTab, int[,] randomDigitsTab)
         {
             int[,] tempTab = new int[randomDigitsTab.GetLength(0), randomDigitsTab.GetLength(1)];
@@ -41,7 +41,7 @@ namespace TSP_Algorithm
             }
             return tempTab;
         }
-        //PMX crossing method
+        //PMX crossing method http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/PMXCrossoverOperator.aspx
         private static int[,] crossPMX(int[,] population, int parameter)
         {
             int[,] personsPopulation = new int[population.GetLength(0), population.GetLength(1)];
@@ -136,7 +136,7 @@ namespace TSP_Algorithm
             }
             return person;
         }
-        //mutation
+        //mutation https://en.wikipedia.org/wiki/Mutation_(genetic_algorithm)
         private static int[,] Mutation(int[,] crossedTab)
         {
             int randomMutation = rand.Next(0, 101);
