@@ -1,0 +1,13 @@
+C:\Users\Patryk\Desktop\studia\TSP-Algorithm-C-sharp-master\TSP-Algorithm\bin\Debug\netcoreapp3.0\TSP-Algorithm.exe
+C:\Users\Patryk\Desktop\studia\TSP-Algorithm-C-sharp-master\TSP-Algorithm\bin\Debug\netcoreapp3.0\TSP-Algorithm.deps.json
+C:\Users\Patryk\Desktop\studia\TSP-Algorithm-C-sharp-master\TSP-Algorithm\bin\Debug\netcoreapp3.0\TSP-Algorithm.runtimeconfig.json
+C:\Users\Patryk\Desktop\studia\TSP-Algorithm-C-sharp-master\TSP-Algorithm\bin\Debug\netcoreapp3.0\TSP-Algorithm.runtimeconfig.dev.json
+C:\Users\Patryk\Desktop\studia\TSP-Algorithm-C-sharp-master\TSP-Algorithm\bin\Debug\netcoreapp3.0\TSP-Algorithm.dll
+C:\Users\Patryk\Desktop\studia\TSP-Algorithm-C-sharp-master\TSP-Algorithm\bin\Debug\netcoreapp3.0\TSP-Algorithm.pdb
+C:\Users\Patryk\Desktop\studia\TSP-Algorithm-C-sharp-master\TSP-Algorithm\obj\Debug\netcoreapp3.0\TSP-Algorithm.csprojAssemblyReference.cache
+C:\Users\Patryk\Desktop\studia\TSP-Algorithm-C-sharp-master\TSP-Algorithm\obj\Debug\netcoreapp3.0\TSP-Algorithm.AssemblyInfoInputs.cache
+C:\Users\Patryk\Desktop\studia\TSP-Algorithm-C-sharp-master\TSP-Algorithm\obj\Debug\netcoreapp3.0\TSP-Algorithm.AssemblyInfo.cs
+C:\Users\Patryk\Desktop\studia\TSP-Algorithm-C-sharp-master\TSP-Algorithm\obj\Debug\netcoreapp3.0\TSP-Algorithm.csproj.CoreCompileInputs.cache
+C:\Users\Patryk\Desktop\studia\TSP-Algorithm-C-sharp-master\TSP-Algorithm\obj\Debug\netcoreapp3.0\TSP-Algorithm.dll
+C:\Users\Patryk\Desktop\studia\TSP-Algorithm-C-sharp-master\TSP-Algorithm\obj\Debug\netcoreapp3.0\TSP-Algorithm.pdb
+C:\Users\Patryk\Desktop\studia\TSP-Algorithm-C-sharp-master\TSP-Algorithm\obj\Debug\netcoreapp3.0\TSP-Algorithm.genruntimeconfig.cache
