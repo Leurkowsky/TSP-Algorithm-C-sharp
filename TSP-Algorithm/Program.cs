@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace TSP_Algorithm
 {
-    class Program
+    internal class Program
     {
-        private static Random rand = new Random();
+        private static readonly Random rand = new Random();
         private static int rowCounter;
         private static int randomCounter;
         private static int iterationCounter;
@@ -15,7 +15,12 @@ namespace TSP_Algorithm
         private static int bestResult = int.MaxValue;
         private static int[] bestRoute;
 
-        //tournament selection https://en.wikipedia.org/wiki/Tournament_selection
+        /// <summary>
+        /// tournament selection https://en.wikipedia.org/wiki/Tournament_selection
+        /// </summary>
+        /// <param name="sumRoadTab"></param>
+        /// <param name="randomDigitsTab"></param>
+        /// <returns></returns>
         private static int[,] tournamentSelection(int[] sumRoadTab, int[,] randomDigitsTab)
         {
             int[,] tempTab = new int[randomDigitsTab.GetLength(0), randomDigitsTab.GetLength(1)];
@@ -27,13 +32,9 @@ namespace TSP_Algorithm
 
                 int temp = 0;
                 if (sumRoadTab[rand1] > sumRoadTab[rand2])
-                {
                     temp = rand2;
-                }
                 else
-                {
                     temp = rand1;
-                }
                 for (int j = 0; j < randomDigitsTab.GetLength(1); j++)
                 {
                     tempTab[i, j] = randomDigitsTab[temp, j];
@@ -41,7 +42,12 @@ namespace TSP_Algorithm
             }
             return tempTab;
         }
-        //PMX crossing method http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/PMXCrossoverOperator.aspx
+        /// <summary>
+        /// PMX crossing method http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/PMXCrossoverOperator.aspx
+        /// </summary>
+        /// <param name="population"></param>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         private static int[,] crossPMX(int[,] population, int parameter)
         {
             int[,] personsPopulation = new int[population.GetLength(0), population.GetLength(1)];
@@ -78,6 +84,12 @@ namespace TSP_Algorithm
             }
             return personsPopulation;
         }
+        /// <summary>
+        /// Cross pair oftwo persons
+        /// </summary>
+        /// <param name="person1"></param>
+        /// <param name="person2"></param>
+        /// <returns></returns>
         private static int[,] crossPair(int[] person1, int[] person2)
         {
             int[] tempTab1 = new int[person1.Length];
@@ -112,7 +124,15 @@ namespace TSP_Algorithm
             }
             return persons;
         }
-        //changing genes method
+        /// <summary>
+        /// Changing genes between parent and descendant
+        /// </summary>
+        /// <param name="parent"></param>
+        /// <param name="person"></param>
+        /// <param name="ppp"></param>
+        /// <param name="dpp"></param>
+        /// <param name="start"></param>
+        /// <returns></returns>
         private static int[] changeGenes(int[] parent, int[] person, int ppp, int dpp, bool start)
         {
             //from 0 to ppp
@@ -136,7 +156,11 @@ namespace TSP_Algorithm
             }
             return person;
         }
-        //mutation https://en.wikipedia.org/wiki/Mutation_(genetic_algorithm)
+        /// <summary>
+        /// mutation https://en.wikipedia.org/wiki/Mutation_(genetic_algorithm)
+        /// </summary>
+        /// <param name="crossedTab"></param>
+        /// <returns></returns>
         private static int[,] Mutation(int[,] crossedTab)
         {
             int randomMutation = rand.Next(0, 101);
@@ -176,16 +200,15 @@ namespace TSP_Algorithm
             }
             return mutatedTab;
         }
-        static void Main(string[] args)
+        /// <summary>
+        /// Process data from file
+        /// </summary>
+        /// <param name="rows"></param>
+        /// <returns></returns>
+        private static int[,] ProcessData(string[] rows)
         {
-            //setting up patch to our txt file that contains distance to cities
-            string path = @"C:\Users\Admin\Desktop\path.txt";
-            string text = File.ReadAllText(path);
-            string[] rows = text.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
             int counter = 0;
             int dig = 0;
-            rowCounter = int.Parse(rows[0]);
-            bestRoute = new int[rowCounter];
             int[,] basicTab = new int[rowCounter, rowCounter];
             //saving data from txt file to tab
             for (int i = 1; i < rows.Length - 1; i++)
@@ -207,11 +230,16 @@ namespace TSP_Algorithm
                     basicTab[j, i] = basicTab[i, j];
                 }
             }
-            Console.WriteLine("Enter quantity of subjects : ");
-            randomCounter = int.Parse(Console.ReadLine());
+            return basicTab;
+        }
+        /// <summary>
+        /// Draw routes between points without repetitions
+        /// </summary>
+        /// <param name="randomDigits"></param>
+        /// <returns></returns>
+        private static int[,] DrawRoutes(int rowCounter)
+        {
             int[,] randomDigits = new int[randomCounter, rowCounter];
-
-            //draw routes without repetition
             for (int i = 0; i < randomCounter; i++)
             {
                 for (int j = 0; j < rowCounter; j++)
@@ -227,13 +255,11 @@ namespace TSP_Algorithm
                     }
                 }
             }
+            return randomDigits;
+        }
 
-            Console.WriteLine("Enter quantity of iterations");
-            iterationCounter = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter crossing parameter 1-100");
-            crossingParameter = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter mutation parameter 1-100");
-            mutationParameter = int.Parse(Console.ReadLine());
+        private static void ProcessAndPrint(int[,] randomDigits, int[,] basicTab)
+        {
             for (int x = 0; x <= iterationCounter + 1; x++)
             {
 
@@ -272,9 +298,7 @@ namespace TSP_Algorithm
                     {
                         int next = j + 1;
                         if (next == rowCounter)
-                        {
                             next = 0;
-                        }
                         int counter1 = mutatedDigits[i, j]; //start
                         int counter2 = mutatedDigits[i, next]; //end
 
@@ -292,7 +316,6 @@ namespace TSP_Algorithm
                     }
                 }
                 //select best route (smallest)
-
                 if (x == iterationCounter)
                 {
                     Console.WriteLine("Best result: " + bestResult);
@@ -301,13 +324,38 @@ namespace TSP_Algorithm
                     {
                         Console.Write(bestRoute[i]);
                         if (i != bestRoute.Length - 1)
-                        {
                             Console.Write("-");
-                        }
                     }
                     Console.WriteLine();
-                    Console.ReadKey();
                 }
             }
         }
+
+        private static void Main(string[] args)
+        {
+            //setting up patch to our txt file that contains distance to cities
+            string path = @"C:\Users\Patryk\Desktop\studia\TSP-Algorithm-C-sharp-master\TSP-Algorithm\berlin52.txt";
+            string text = File.ReadAllText(path);
+            string[] rows = text.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+            rowCounter = int.Parse(rows[0]);
+            bestRoute = new int[rowCounter];
+            int[,] basicTab = ProcessData(rows);
+
+            Console.WriteLine("Enter quantity of subjects : ");
+            randomCounter = int.Parse(Console.ReadLine());
+            int[,] randomDigits = DrawRoutes(rowCounter);
+
+            Console.WriteLine("Enter quantity of iterations");
+            iterationCounter = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter crossing parameter 1-100");
+            crossingParameter = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter mutation parameter 1-100");
+            mutationParameter = int.Parse(Console.ReadLine());
+
+            ProcessAndPrint(randomDigits, basicTab);
+            Console.ReadKey();
+        }
+    }
 }

@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.0": []
   },
   "packageFolders": {
-    "C:\\Users\\patry\\.nuget\\packages\\": {}
+    "C:\\Users\\Patryk\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\patry\\source\\repos\\TSP-Algorithm\\TSP-Algorithm.csproj",
+      "projectUniqueName": "C:\\Users\\Patryk\\Desktop\\studia\\TSP-Algorithm-C-sharp-master\\TSP-Algorithm\\TSP-Algorithm.csproj",
       "projectName": "TSP-Algorithm",
-      "projectPath": "C:\\Users\\patry\\source\\repos\\TSP-Algorithm\\TSP-Algorithm.csproj",
-      "packagesPath": "C:\\Users\\patry\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\patry\\source\\repos\\TSP-Algorithm\\obj\\",
+      "projectPath": "C:\\Users\\Patryk\\Desktop\\studia\\TSP-Algorithm-C-sharp-master\\TSP-Algorithm\\TSP-Algorithm.csproj",
+      "packagesPath": "C:\\Users\\Patryk\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Patryk\\Desktop\\studia\\TSP-Algorithm-C-sharp-master\\TSP-Algorithm\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\patry\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Patryk\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -53,12 +53,30 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.0.1, 3.0.1]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.0.3, 3.0.3]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.0.0, 3.0.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[3.0.0, 3.0.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
